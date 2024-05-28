@@ -4,7 +4,7 @@ function changeProfilePictures() {
   );
   profileImages.forEach((img) => {
     const newImgUrl =
-      "https://images.pexels.com/photos/18413376/pexels-photo-18413376/free-photo-of-pink-roses-sticking-in-water-at-a-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+      "https://images.pexels.com/photos/24823063/pexels-photo-24823063/free-photo-of-a-blue-abstract-painting-with-a-white-background.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load";
     img.src = newImgUrl;
   });
 }

@@ -4,9 +4,6 @@
   "version": "1.0",
   "description": "Changes the profile pictures in LinkedIn posts.",
   "permissions": ["activeTab", "scripting"],
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
       "matches": ["https://www.linkedin.com/feed/*"],
