@@ -1,15 +1,40 @@
+const universalImageUrl =
+  "https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png";
+
 function changeProfilePictures() {
-  const profileImages = document.querySelectorAll(
-    ".ivm-view-attr__img--centered.EntityPhoto-circle-2.update-components-actor__avatar-image.evi-image.lazy-image.ember-view"
+  const originalPostProfileImages = document.querySelectorAll(
+    ".update-components-actor__container .ivm-view-attr__img-wrapper.ivm-view-attr__img-wrapper--no-flex img"
   );
-  profileImages.forEach((img) => {
-    const newImgUrl =
-      "https://images.pexels.com/photos/24823063/pexels-photo-24823063/free-photo-of-a-blue-abstract-painting-with-a-white-background.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load";
-    img.src = newImgUrl;
+  originalPostProfileImages.forEach((img) => {
+    img.src = universalImageUrl;
+  });
+
+  const resharedPostProfileImages = document.querySelectorAll(
+    ".update-components-actor.display-flex.align-items-flex-start .ivm-view-attr__img-wrapper.ivm-view-attr__img-wrapper--no-flex img"
+  );
+  resharedPostProfileImages.forEach((img) => {
+    img.src = universalImageUrl;
+  });
+
+  const likedPostProfileImages = document.querySelectorAll(
+    ".update-components-actor__container.display-flex.flex-grow-1 .ivm-view-attr__img-wrapper.ivm-view-attr__img-wrapper--no-flex img"
+  );
+  likedPostProfileImages.forEach((img) => {
+    img.src = universalImageUrl;
+  });
+
+  const commentProfileImages = document.querySelectorAll(
+    ".comments-post-meta.comments-comment-item__post-meta .ivm-view-attr__img-wrapper.ivm-view-attr__img-wrapper--no-flex img"
+  );
+  commentProfileImages.forEach((img) => {
+    img.src = universalImageUrl;
   });
 }
 
-changeProfilePictures();
+function checkAndChange() {
+  changeProfilePictures();
+}
 
-const observer = new MutationObserver(changeProfilePictures);
-observer.observe(document.body, { childList: true, subtree: true });
+checkAndChange();
+
+setInterval(checkAndChange, 1000);
