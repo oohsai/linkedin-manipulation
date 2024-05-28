@@ -31,10 +31,14 @@ function changeProfilePictures() {
   });
 }
 
-function checkAndChange() {
-  changeProfilePictures();
-}
+changeProfilePictures();
 
-checkAndChange();
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.addedNodes.length > 0) {
+      changeProfilePictures();
+    }
+  });
+});
 
-setInterval(checkAndChange, 1000);
+observer.observe(document.body, { childList: true, subtree: true });
